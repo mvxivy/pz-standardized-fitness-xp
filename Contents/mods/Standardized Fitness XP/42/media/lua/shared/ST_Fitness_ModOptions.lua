@@ -50,8 +50,10 @@ function modOptions.init()
   local ComboBoxGachi = ComboBoxFactory {
     name = "Gachi",
     label = "gachi_label",
-    items = {getText("UI_options_STPASSIVE_B42_gachi_option_yes"),
-             getText("UI_options_STPASSIVE_B42_gachi_option_no")},
+    items = {
+      getText("UI_options_" .. config.modId .. "_gachi_option_yes"),
+      getText("UI_options_" .. config.modId .. "_gachi_option_no")
+    },
     defaultItem = 1,
     description = "gachi_description"
   }
