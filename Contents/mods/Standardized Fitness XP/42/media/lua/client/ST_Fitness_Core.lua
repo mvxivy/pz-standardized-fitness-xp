@@ -38,7 +38,7 @@ end
 
 -- when you or a npc try to hit a tree
 local OnWeaponHitTree = function(owner, weapon)
-  if gachiTreesTraining[tonumber(SETTINGS.options.dropdown5)] then
+  if gachiTreesTraining[modOptions.ComboBoxGachi:getValue()] then
     if weapon and weapon:getType() ~= "BareHands" then
       owner:getXp():AddXP(Perks.Strength, strengthBoost[modOptions.ComboBoxStrengthXP:getValue()]);
     end
