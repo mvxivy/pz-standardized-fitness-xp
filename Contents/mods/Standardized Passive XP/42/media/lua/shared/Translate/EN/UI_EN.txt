@@ -1,0 +1,6 @@
+UI_EN = {
+  UI_options_STPASSIVE_B42_ = "",
+  UI_options_STPASSIVE_B42_ = "",
+  UI_options_STPASSIVE_B42_ = "",
+  UI_options_STPASSIVE_B42_ = "",
+}

@@ -1,0 +1,9 @@
+id=STPASSIVE_B42
+name=Standardized Passive XP
+description=Standardized Passive XP for 42 Build
+author=MaxIvy
+poster=poster.png
+icon=icon.png
+modversion=1.0.0
+pzversion=42
+versionMin=42.0.0
