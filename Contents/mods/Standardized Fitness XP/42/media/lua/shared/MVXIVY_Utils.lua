@@ -1,7 +1,8 @@
 local MVXIVY_Utils = {}
 
 function MVXIVY_Utils.addComboBoxItems(comboBox, items, defaultItem)
-  for i, item in ipairs(items) do
+  for i = 1, #items do
+    local item = items[i]
     comboBox:addItem(item, i == defaultItem)
   end
 end

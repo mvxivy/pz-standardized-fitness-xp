@@ -9,6 +9,11 @@ local strengthChance = {200, 300, 500, 700, 1000}
 -- Whether you need weapons to get XP from trees
 local gachiTreesTraining = {true, false}
 
+-- do we get xp ?
+  local randXp = function(OneInX)
+    return ZombRand(tonumber(OneInX) * GameTime:getInstance():getInvMultiplier()) == 0;
+  end
+
 -- used everytime the player move
 local onPlayerMove = function()
   local player = getPlayer();
@@ -55,11 +60,6 @@ local onWeaponHitXp = function(owner, weapon, hitObject, damage)
   if not weapon:isRanged() and owner:getLastHitCount() > 0 then
     owner:getXp():AddXP(Perks.Strength, (owner:getLastHitCount() + strengthBoost[modOptions.ComboBoxStrengthXP:getValue()]));
   end
-end
-
--- do we get xp ?
-local randXp = function(OneInX)
-  return ZombRand(tonumber(OneInX) * GameTime:getInstance():getInvMultiplier()) == 0;
 end
 
 Events.OnPlayerMove.Add(onPlayerMove);
