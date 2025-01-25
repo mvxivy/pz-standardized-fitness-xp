@@ -1,5 +1,5 @@
 version=1
-title=Mod Template
-description=Standardized Passive XP for build 42 (41 supported*)
+title=Standardized Fitness & Strength XP
+description=Standardized Fitness & Strength XP for build 42 (41 supported*)
 tags=Build 41;Build 42;Balance;Skills
 visibility=public

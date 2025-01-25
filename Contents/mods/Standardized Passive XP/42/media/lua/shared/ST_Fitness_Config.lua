@@ -1,6 +1,6 @@
 local config = {
-  modName = "Standardized Passive XP",
-  modId = "STPASSIVE_B42"
+  modName = "Standardized Fitness & Strength XP",
+  modId = "STFITNESS_B42"
 }
 
 return config
