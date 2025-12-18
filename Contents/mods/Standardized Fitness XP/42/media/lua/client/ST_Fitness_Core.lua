@@ -9,10 +9,14 @@ local strengthChance = {200, 300, 500, 700, 1000}
 -- Whether you need weapons to get XP from trees
 local gachiTreesTraining = {true, false}
 
--- do we get xp ?
-  local randXp = function(OneInX)
-    return ZombRand(tonumber(OneInX) * GameTime:getInstance():getInvMultiplier()) == 0;
+
+local randXp = function(OneInX)
+  local chance = tonumber(OneInX)
+  if not chance or chance <= 0 then
+    chance = 1
   end
+  return ZombRand(chance * GameTime:getInstance():getInvMultiplier()) == 0;
+end
 
 -- used everytime the player move
 local onPlayerMove = function()
@@ -53,7 +57,7 @@ end
 -- when you or a npc try to hit something
 local onWeaponHitXp = function(owner, weapon, hitObject, damage)
   -- if you sucessful swing your non ranged weapon
-  if owner:getStats():getEndurance() > owner:getStats():getEndurancewarn() and not weapon:isRanged() then
+  if owner:getStats():getLastEndurance() > owner:getStats():getEnduranceWarning() and not weapon:isRanged() then
     owner:getXp():AddXP(Perks.Fitness, fitnessBoost[modOptions.ComboBoxFitnessXP:getValue()]);
   end
 
