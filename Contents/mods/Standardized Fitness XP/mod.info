@@ -1,5 +1,9 @@
-name=Standardized Passive XP
-poster=poster.png
 id=STFITNESS_B42
-description=Standardized Passive XP
-require=modoptions
+name=Standardized Fitness & Strength XP
+description=Standardized Fitness & Strength XP for 42 Build
+poster=poster.png
+author=MaxIvy
+icon=icon.png
+modversion=2.0.0
+pzversion=42
+versionMin=42.13.0

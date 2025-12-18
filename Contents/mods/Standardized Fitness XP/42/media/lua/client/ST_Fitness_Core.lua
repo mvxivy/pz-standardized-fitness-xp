@@ -20,8 +20,9 @@ local onPlayerMove = function()
   local xp = player:getXp();
   -- Passive fitness from running xp
   -- if you're running and your endurance has changed
-  if (player:IsRunning() or player:isSprinting()) and player:getStats():getEndurance() >
-    player:getStats():getEndurancewarn() then
+  if (player:IsRunning() or player:isSprinting()) and
+    player:getStats():getLastEndurance() >
+    player:getStats():getEnduranceWarning() then
     -- you may gain some xp in fitness
     if randXp(fitnessChance[modOptions.ComboBoxFitnessChance:getValue()]) then
       xp:AddXP(Perks.Fitness, fitnessBoost[modOptions.ComboBoxFitnessXP:getValue()]);
