@@ -1,27 +1,25 @@
 version=1
 id=3414404184
 title=Standardized Fitness & Strength XP
-description=Standardized Fitness & Strength XP for build 42 (41 supported*)
-description=
-description=This is an update to the great [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2664233895]mod[/url] by ConquerorKoala
-description=
-description=[h3]How it works[/h3]
-description=[i]Original description:
-description=This mod allows the player to alter the XP rates of passive skills Fitness and Strength. This does not alter XP gained from training (excercise), as there is a lot of mods which do that already. This alters only the passively gained XP for them, such as Fitness XP gained from sprinting, or Strength XP gained from hitting trees and enemies or carrying a heavy load.
-description=
-description=This allows you to set XP rates and the XP gain chance (it uses a one in X chance to give player XP in some cases) for Fitness and Strength separately. Also allows for what I call "minecraft" mode, in which the player can disable needing a weapon to gain Strength XP from hitting trees; consequently, you can bare-handed shove trees to obtain Strength XP (be sure you are hearing a hit sound and hit from a good angle/distance) and pretend to be Steve himself.[/i]
-description=
-description=[h3]Details[/h3]
-description=[list]
-description=[*] *The mod should work for build 41, but I [b]haven't tested it[/b]. If you can test it and give feedback, that would be great.
-description=[*] To build mod 41, you need [url=https://steamcommunity.com/workshop/filedetails/?id=2169435993]ModOptions[/url], as before.
-description=[*] To build mod 42, you don't need ModOptions.
-description=[/list]
-description=
-description=[h3]Settings[/h3]
-description=As in build 41, the mod settings are in the "Settings" -> "Mods" tab.
-description=
-description=Supported languages:
+description=Standardized Fitness & Strength XP for build 42
+description=
+description=This is an update to the great [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2664233895]mod[/url] by ConquerorKoala
+description=
+description=[h3]How it works[/h3]
+description=[i]Original description:
+description=This mod allows the player to alter the XP rates of passive skills Fitness and Strength. This does not alter XP gained from training (excercise), as there is a lot of mods which do that already. This alters only the passively gained XP for them, such as Fitness XP gained from sprinting, or Strength XP gained from hitting trees and enemies or carrying a heavy load.
+description=
+description=This allows you to set XP rates and the XP gain chance (it uses a one in X chance to give player XP in some cases) for Fitness and Strength separately. Also allows for what I call "minecraft" mode, in which the player can disable needing a weapon to gain Strength XP from hitting trees; consequently, you can bare-handed shove trees to obtain Strength XP (be sure you are hearing a hit sound and hit from a good angle/distance) and pretend to be Steve himself.[/i]
+description=
+description=[h3]Details[/h3]
+description=[list]
+description=[*] To build mod 42, you don't need ModOptions.
+description=[/list]
+description=
+description=[h3]Settings[/h3]
+description=As in build 41, the mod settings are in the "Settings" -> "Mods" tab.
+description=
+description=Supported languages:
 description=EN ??, RU ??
-tags=Build 41;Build 42;Balance;Skills
+tags=Build 42;Balance;Skills
 visibility=public
