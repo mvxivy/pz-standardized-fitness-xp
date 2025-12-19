@@ -9,6 +9,11 @@ local strengthChance = {200, 300, 500, 700, 1000}
 -- Whether you need weapons to get XP from trees
 local gachiTreesTraining = {true, false}
 
+local gameVersion = tostring(getCore():getGameVersion())
+local function gameVersionIs4213() 
+  return string.sub(gameVersion, 0, 5) == "42.13"
+end
+
 
 local randXp = function(OneInX)
   local chance = tonumber(OneInX)
@@ -18,15 +23,27 @@ local randXp = function(OneInX)
   return ZombRand(chance * GameTime:getInstance():getInvMultiplier()) == 0;
 end
 
+--- check condition for onPlayerMove
+---@param player IsoPlayer
+local function checkConditionForPlayerMoveHandler(player) 
+  if gameVersionIs4213() then
+    return (player:IsRunning() or player:isSprinting()) and
+      player:getStats():getLastEndurance() >
+      player:getStats():getEnduranceWarning()
+  else
+    return (player:IsRunning() or player:isSprinting()) and
+      player:getStats():getEndurance() >
+      player:getStats():getEndurancewarn()
+  end
+end
+
 -- used everytime the player move
 local onPlayerMove = function()
   local player = getPlayer();
   local xp = player:getXp();
   -- Passive fitness from running xp
   -- if you're running and your endurance has changed
-  if (player:IsRunning() or player:isSprinting()) and
-    player:getStats():getLastEndurance() >
-    player:getStats():getEnduranceWarning() then
+  if checkConditionForPlayerMoveHandler(player) then
     -- you may gain some xp in fitness
     if randXp(fitnessChance[modOptions.ComboBoxFitnessChance:getValue()]) then
       xp:AddXP(Perks.Fitness, fitnessBoost[modOptions.ComboBoxFitnessXP:getValue()]);
@@ -54,10 +71,21 @@ local OnWeaponHitTree = function(owner, weapon)
   end
 end
 
+--- check condition with game version
+---@param owner IsoPlayer
+---@param weapon WeaponType
+local function checkBonusConditionForWeaponHandler(owner, weapon)
+	if(gameVersionIs4213()) then
+		return owner:getStats():getLastEndurance() > owner:getStats():getEnduranceWarning() and not weapon:isRanged()
+	else 
+		return owner:getStats():getEndurance() > owner:getStats():getEndurancewarn() and not weapon:isRanged()
+	end
+end
+
 -- when you or a npc try to hit something
 local onWeaponHitXp = function(owner, weapon, hitObject, damage)
   -- if you sucessful swing your non ranged weapon
-  if owner:getStats():getLastEndurance() > owner:getStats():getEnduranceWarning() and not weapon:isRanged() then
+  if checkBonusConditionForWeaponHandler(owner, weapon) then
     owner:getXp():AddXP(Perks.Fitness, fitnessBoost[modOptions.ComboBoxFitnessXP:getValue()]);
   end
 
