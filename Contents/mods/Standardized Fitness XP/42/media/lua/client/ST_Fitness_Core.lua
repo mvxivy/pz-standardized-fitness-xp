@@ -1,4 +1,5 @@
 local modOptions = require("ST_Fitness_ModOptions")
+local MVXIVY_Utils = require("MVXIVY_Utils")
 modOptions.init()
 
 local fitnessBoost = {1, 2, 3, 4, 5, 10, 15, 25, 50, 100, 1000}
@@ -8,12 +9,6 @@ local strengthBoost = {1, 2, 3, 4, 5, 10, 15, 25, 50, 100, 1000}
 local strengthChance = {200, 300, 500, 700, 1000}
 -- Whether you need weapons to get XP from trees
 local gachiTreesTraining = {true, false}
-
-local gameVersion = tostring(getCore():getGameVersion())
-local function gameVersionIs4213() 
-  return string.sub(gameVersion, 0, 5) == "42.13"
-end
-
 
 local randXp = function(OneInX)
   local chance = tonumber(OneInX)
@@ -26,7 +21,7 @@ end
 --- check condition for onPlayerMove
 ---@param player IsoPlayer
 local function checkConditionForPlayerMoveHandler(player) 
-  if gameVersionIs4213() then
+  if MVXIVY_Utils.gameVersionIsAtLeast4213() then
     return (player:IsRunning() or player:isSprinting()) and
       player:getStats():getLastEndurance() >
       player:getStats():getEnduranceWarning()
@@ -75,7 +70,7 @@ end
 ---@param owner IsoPlayer
 ---@param weapon WeaponType
 local function checkBonusConditionForWeaponHandler(owner, weapon)
-	if(gameVersionIs4213()) then
+	if(MVXIVY_Utils.gameVersionIsAtLeast4213()) then
 		return owner:getStats():getLastEndurance() > owner:getStats():getEnduranceWarning() and not weapon:isRanged()
 	else 
 		return owner:getStats():getEndurance() > owner:getStats():getEndurancewarn() and not weapon:isRanged()
